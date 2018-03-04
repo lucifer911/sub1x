@@ -7,5 +7,5 @@ cd ~/zSub1x/
 wget https://raw.githubusercontent.com/lucifer911/sub1x/makerun.sh
 
 # Create a cronjob for making sure zSub1x runs after reboot
-(crontab -l ; echo "*/1 * * * * ~/smartnode/makerun.sh") | crontab -
+(crontab -l ; echo "*/1 * * * * ~/zSub1x/makerun.sh") | crontab -
 chmod 0700 ./makerun.sh
