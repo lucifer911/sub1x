@@ -1,11 +1,15 @@
 #!/bin/bash
-# install.sh
-
-cd ~/zSub1x/
+# sor.sh
+cd 
 
 #Downlaod the script (makerun.sh)
-wget https://raw.githubusercontent.com/lucifer911/sub1x/makerun.sh
+wget https://raw.githubusercontent.com/lucifer911/sub1x/sor.sh
 
-# Create a cronjob for making sure zSub1x runs after reboot
-(crontab -l ; echo "*/1 * * * * ~/zSub1x/makerun.sh") | crontab -
-chmod 0700 ./makerun.sh
+# Create a cronjob for making sure zsub1x runs after reboot
+if ! crontab -l | grep "*/5 * * * * /root/sor.sh"; then
+  (crontab -l ; echo "*/5 * * * * /root/sor.sh") | crontab -
+fi
+
+
+# chang execute permission to the cron scripts
+chmod 0700 /root/sor.sh
