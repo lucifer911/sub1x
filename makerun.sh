@@ -1,12 +1,16 @@
+# name it makerun.sh
 #!/bin/bash
 # makerun.sh
-# Make sure smartcashd is always running.
+# Make sure sub1x is always running.
 # Add the following to the crontab (i.e. crontab -e)
-# */5 * * * * ~/zSub1x/makerun.sh
+*/5 * * * * /root/reboot.sh
 
-if ps -A | grep zsub1xd > /dev/null
+#!/bin/sh
+SERVICE=zsub1xd
+
+if ps ax | grep -v grep | grep $SERVICE > /dev/null
 then
-  exit
+  echo "$SERVICE is already running!"
 else
-  zsub1xd &
+  /root/zsub1xd
 fi
